@@ -5,7 +5,7 @@ import styles from "./GoogleConnexion.module.css";
 
 export default function GoogleConnexion() {
   return (
-    <div>
+    <div className={styles.button}>
       <button
         className={styles.gsiMaterialButton}
         onClick={() => signIn("google")}

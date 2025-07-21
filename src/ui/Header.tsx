@@ -9,13 +9,17 @@ import styles from "./Header.module.css";
 
 export default function Header() {
   const { user } = useUserContext();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return null;
+  }
 
   if (!user)
     return (
-      <header>
+      <header className={styles.globalHeader}>
         <h1>Echoes</h1>
-        <nav>
+        <nav className={styles.nav}>
           <LINK href="/">Explorer</LINK>
           <GoogleConnexion />
         </nav>
