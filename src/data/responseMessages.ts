@@ -17,4 +17,13 @@ const infoMessages = {
   updateSuccess: "Information mise à jour avec succès",
 }
 
-export { infoMessages }
+const userMessages = {
+  notFound: "Utilisateur non trouvé",
+  error: "Erreur lors de la récupération de l'utilisateur, veuillez réessayer ulterieurement",
+  invalidEmail: "Adresse e-mail invalide",
+  updateSuccess: "Utilisateur mis à jour avec succès",
+  deleteSuccess: "Utilisateur supprimé avec succès",
+  deleteFail: "Erreur lors de la suppression de l'utilisateur, veuillez réessayer ulterieurement",
+}
+
+export { infoMessages, userMessages }
