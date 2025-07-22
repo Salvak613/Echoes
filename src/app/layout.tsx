@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Micro_5 } from "next/font/google";
 import { UserProvider } from "@/context/UserContext";
 import SessionWrapper from "@/app/SessionWrapper";
-import Header from "@/ui/Header";
+import Header from "@/ui/Header/Header";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+});
+
+const micro5 = Micro_5({
+  variable: "--font-micro5",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${micro5.variable}`}>
         <SessionWrapper>
           <UserProvider>
             <Header />

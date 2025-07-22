@@ -1,7 +1,8 @@
 import "dotenv/config";
 import mysql from "mysql2/promise";
 
-const { MYSQL_DB_HOST, MYSQL_DB_USER, MYSQL_DB_PASSWORD, MYSQL_DB_NAME } = process.env;
+const { MYSQL_DB_HOST, MYSQL_DB_USER, MYSQL_DB_PASSWORD, MYSQL_DB_NAME } =
+  process.env;
 
 const schema = `
   CREATE DATABASE IF NOT EXISTS \`${MYSQL_DB_NAME}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -18,7 +19,8 @@ const schema = `
   CREATE TABLE IF NOT EXISTS picture (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    image_path TEXT NOT NULL
+    image_path TEXT NOT NULL,
+    miniature_path TEXT NOT NULL
   );
 
   CREATE TABLE IF NOT EXISTS music (

@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  background-color: var(--secondaryColor);
+  padding: 20px;
+  width: 600px;
+  max-height: 150px;
+  overflow: auto;
+  border: solid 1px var(--fourthColor);
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.musicList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.musicItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  background-color: var(--fourthColor);
+}
+
+.musicEmoji {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.musicName {
+  display: block;
+  font-family: var(--font-space-grotesk), sans-serif;
+  width: 100%;
+  max-width: 100px;
+  max-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.selected {
+  border: 1px solid #fff;
+  border-radius: 5px;
+}

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 50px;
+}
+
+.previewSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.previewSection button {
+  width: 100px;
+  height: 40px;
+  background: var(--secondaryColor);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+}

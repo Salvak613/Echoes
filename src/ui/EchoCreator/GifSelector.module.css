@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  background-color: var(--secondaryColor);
+  padding: 20px;
+  width: 600px;
+  max-height: 300px;
+  overflow: auto;
+  border-radius: 25px 25px 0 0;
+  border: solid 1px var(--fourthColor);
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.gifList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.gifList img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.gifItem {
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.selected {
+  border: 1px solid #fff;
+  border-radius: 5px;
+}

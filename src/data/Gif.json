@@ -1,35 +1,167 @@
 [
-  { "name": "7corner", "image_path": "7corner.gif" },
-  { "name": "20hours", "image_path": "20hours.gif" },
-  { "name": "BestHour", "image_path": "BestHour.gif" },
-  { "name": "Castle", "image_path": "Castle.gif" },
-  { "name": "Checkpoint", "image_path": "Checkpoint.gif" },
-  { "name": "CozyCoffee", "image_path": "CozyCoffee.gif" },
-  { "name": "CyberDream", "image_path": "CyberDream.gif" },
-  { "name": "CyberPunk", "image_path": "CyberPunk.gif" },
-  { "name": "Drugs", "image_path": "Drugs.gif" },
-  { "name": "Entrance", "image_path": "Entrance.gif" },
-  { "name": "EveryoneSleep", "image_path": "EveryoneSleep.gif" },
-  { "name": "EverythingGoFast", "image_path": "EverythingGoFast.gif" },
-  { "name": "GameStation", "image_path": "GameStation.gif" },
-  { "name": "HardLife", "image_path": "HardLife.gif" },
-  { "name": "Haunted", "image_path": "Haunted.gif" },
-  { "name": "JapanDream", "image_path": "JapanDream.gif" },
-  { "name": "NewSun", "image_path": "NewSun.gif" },
-  { "name": "NightCity", "image_path": "NightCity.gif" },
-  { "name": "NightForest", "image_path": "NightForest.gif" },
-  { "name": "PeaceGarden", "image_path": "PeaceGarden.gif" },
-  { "name": "PinkTown", "image_path": "PinkTown.gif" },
-  { "name": "RestForTheWolf", "image_path": "RestForTheWolf.gif" },
-  { "name": "RestForTravel", "image_path": "RestForTravel.gif" },
-  { "name": "SoloPackTravel", "image_path": "SoloPackTravel.gif" },
-  { "name": "Solution", "image_path": "Solution.gif" },
-  { "name": "TeaTime", "image_path": "TeaTime.gif" },
-  { "name": "TimeFly", "image_path": "TimeFly.gif" },
-  { "name": "Water", "image_path": "Water.gif" },
-  { "name": "WhatCanYouDo", "image_path": "WhatCanYouDo.gif" },
-  { "name": "WhenNightCome", "image_path": "WhenNightCome.gif" },
-  { "name": "WhiteSakura", "image_path": "WhiteSakura.gif" },
-  { "name": "WorkTime", "image_path": "WorkTime.gif" },
-  { "name": "WorldEdge", "image_path": "WorldEdge.gif" }
+  {
+    "name": "7corner",
+    "image_path": "7corner.gif",
+    "miniature_path": "7corner.png"
+  },
+  {
+    "name": "20hours",
+    "image_path": "20hours.gif",
+    "miniature_path": "20hours.png"
+  },
+  {
+    "name": "BestHour",
+    "image_path": "BestHour.gif",
+    "miniature_path": "BestHour.png"
+  },
+  {
+    "name": "Castle",
+    "image_path": "Castle.gif",
+    "miniature_path": "Castle.png"
+  },
+  {
+    "name": "Checkpoint",
+    "image_path": "Checkpoint.gif",
+    "miniature_path": "Checkpoint.png"
+  },
+  {
+    "name": "CozyCoffee",
+    "image_path": "CozyCoffee.gif",
+    "miniature_path": "CozyCoffee.png"
+  },
+  {
+    "name": "CyberDream",
+    "image_path": "CyberDream.gif",
+    "miniature_path": "CyberDream.png"
+  },
+  {
+    "name": "CyberPunk",
+    "image_path": "CyberPunk.gif",
+    "miniature_path": "CyberPunk.png"
+  },
+  {
+    "name": "Drugs",
+    "image_path": "Drugs.gif",
+    "miniature_path": "Drugs.png"
+  },
+  {
+    "name": "Entrance",
+    "image_path": "Entrance.gif",
+    "miniature_path": "Entrance.png"
+  },
+  {
+    "name": "EveryoneSleep",
+    "image_path": "EveryoneSleep.gif",
+    "miniature_path": "EveryoneSleep.png"
+  },
+  {
+    "name": "EverythingGoFast",
+    "image_path": "EverythingGoFast.gif",
+    "miniature_path": "EverythingGoFast.png"
+  },
+  {
+    "name": "GameStation",
+    "image_path": "GameStation.gif",
+    "miniature_path": "GameStation.png"
+  },
+  {
+    "name": "HardLife",
+    "image_path": "HardLife.gif",
+    "miniature_path": "HardLife.png"
+  },
+  {
+    "name": "Haunted",
+    "image_path": "Haunted.gif",
+    "miniature_path": "Haunted.png"
+  },
+  {
+    "name": "JapanDream",
+    "image_path": "JapanDream.gif",
+    "miniature_path": "JapanDream.png"
+  },
+  {
+    "name": "NewSun",
+    "image_path": "NewSun.gif",
+    "miniature_path": "NewSun.png"
+  },
+  {
+    "name": "NightCity",
+    "image_path": "NightCity.gif",
+    "miniature_path": "NightCity.png"
+  },
+  {
+    "name": "NightForest",
+    "image_path": "NightForest.gif",
+    "miniature_path": "NightForest.png"
+  },
+  {
+    "name": "PeaceGarden",
+    "image_path": "PeaceGarden.gif",
+    "miniature_path": "PeaceGarden.png"
+  },
+  {
+    "name": "PinkTown",
+    "image_path": "PinkTown.gif",
+    "miniature_path": "PinkTown.png"
+  },
+  {
+    "name": "RestForTheWolf",
+    "image_path": "RestForTheWolf.gif",
+    "miniature_path": "RestForTheWolf.png"
+  },
+  {
+    "name": "RestForTravel",
+    "image_path": "RestForTravel.gif",
+    "miniature_path": "RestForTravel.png"
+  },
+  {
+    "name": "SoloPackTravel",
+    "image_path": "SoloPackTravel.gif",
+    "miniature_path": "SoloPackTravel.png"
+  },
+  {
+    "name": "Solution",
+    "image_path": "Solution.gif",
+    "miniature_path": "Solution.png"
+  },
+  {
+    "name": "TeaTime",
+    "image_path": "TeaTime.gif",
+    "miniature_path": "TeaTime.png"
+  },
+  {
+    "name": "TimeFly",
+    "image_path": "TimeFly.gif",
+    "miniature_path": "TimeFly.png"
+  },
+  {
+    "name": "Water",
+    "image_path": "Water.gif",
+    "miniature_path": "Water.png"
+  },
+  {
+    "name": "WhatCanYouDo",
+    "image_path": "WhatCanYouDo.gif",
+    "miniature_path": "WhatCanYouDo.png"
+  },
+  {
+    "name": "WhenNightCome",
+    "image_path": "WhenNightCome.gif",
+    "miniature_path": "WhenNightCome.png"
+  },
+  {
+    "name": "WhiteSakura",
+    "image_path": "WhiteSakura.gif",
+    "miniature_path": "WhiteSakura.png"
+  },
+  {
+    "name": "WorkTime",
+    "image_path": "WorkTime.gif",
+    "miniature_path": "WorkTime.png"
+  },
+  {
+    "name": "WorldEdge",
+    "image_path": "WorldEdge.gif",
+    "miniature_path": "WorldEdge.png"
+  }
 ]

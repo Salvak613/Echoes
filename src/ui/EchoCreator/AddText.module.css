@@ -1,0 +1,69 @@
+.textFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.charCount {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.charCountLimit {
+  font-size: 0.85em;
+  color: #d00;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondaryColor);
+  padding: 20px;
+  width: 600px;
+  height: 150px;
+  overflow: auto;
+  border-radius: 0 0 25px 25px;
+  border: solid 1px var(--fourthColor);
+}
+
+.textInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.addButton {
+  width: 100px;
+  height: 40px;
+  background: var(--fourthColor);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+}
+
+.positionButton {
+  width: 100px;
+  height: 40px;
+  background: var(--mainColor);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+}
+
+.textArea {
+  width: 500px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+  color: var(--primaryTextColor);
+  resize: none;
+  text-align: center;
+  border: solid 1px var(--fourthColor);
+  border-radius: 5px;
+}

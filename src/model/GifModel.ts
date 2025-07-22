@@ -2,7 +2,8 @@ export class GifModel {
   constructor(
     private _id: number,
     private _name: string,
-    private _image_path: string
+    private _image_path: string,
+    private _miniature_path: string
   ) {}
 
   get id(): number {
@@ -23,5 +24,13 @@ export class GifModel {
 
   set image_path(value: string) {
     this._image_path = value;
+  }
+
+  get miniature_path(): string {
+    return this._miniature_path;
+  }
+
+  set miniature_path(value: string) {
+    this._miniature_path = value;
   }
 }

@@ -13,6 +13,7 @@ const appRoutes = {
   INFOS_ID: (id: number) => `${appUrl}/infos/${id}`,
   INFOS_ADD: `${appUrl}/infos/ajouter-info`,
   INFOS_EDIT: (id: number) => `${appUrl}/infos/${id}/editer-info`,
+  GIFS: `${appUrl}/Gif`,
 };
 
 export { apiRoutes, appRoutes };

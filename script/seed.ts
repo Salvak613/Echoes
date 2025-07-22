@@ -12,8 +12,6 @@ const Gif = JSON.parse(fs.readFileSync(GifPath, "utf-8"));
 const LofiPath = path.join(__dirname, "../src/data/Lofi.json");
 const Lofi = JSON.parse(fs.readFileSync(LofiPath, "utf-8"));
 
-
-
 const seed = async () => {
   try {
     const db = await mysql.createConnection({
@@ -30,22 +28,18 @@ const seed = async () => {
     await db.query("ALTER TABLE music AUTO_INCREMENT = 1");
     await db.query("ALTER TABLE user AUTO_INCREMENT = 1");
 
-
-    for (const { name, image_path } of Gif) {
+    for (const { name, image_path, miniature_path } of Gif) {
       await db.query(
-        "INSERT INTO picture (name, image_path) VALUES (?, ?)",
-        [name, image_path]
+        "INSERT INTO picture (name, image_path, miniature_path) VALUES (?, ?, ?)",
+        [name, image_path, miniature_path]
       );
     }
 
-    for (const {
-      name,
-      music_path,
-    } of Lofi) {
-      await db.query(
-        "INSERT INTO music (name, music_path) VALUES (?, ?)",
-        [name, music_path]
-      );
+    for (const { name, music_path } of Lofi) {
+      await db.query("INSERT INTO music (name, music_path) VALUES (?, ?)", [
+        name,
+        music_path,
+      ]);
     }
 
     await db.execute("SET FOREIGN_KEY_CHECKS = 1");

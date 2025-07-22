@@ -4,11 +4,13 @@
   --mainColor: #1a1a1a;
   --secondaryColor: #2a2a2a;
   --thirdColor: #ffffff;
+  --fourthColor: #5c5c5c;
   --headerHeight: 70px;
   --pageHeight: calc(100dvh - (var(--headerHeight)));
   --font-space-grotesk: "Space Grotesk", sans-serif;
   --font-geist-sans: "Geist Sans", sans-serif;
   --font-geist-mono: "Geist Mono", monospace;
+  --font-micro-5: "Micro 5", sans-serif;
 }
 
 *,
@@ -74,5 +76,5 @@ main {
   padding: 1rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  max-width: 1200px;
+  max-width: 1600px;
 }

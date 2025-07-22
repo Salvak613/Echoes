@@ -2,8 +2,8 @@
 
 import { useUserContext } from "@/context/UserContext";
 import LINK from "next/link";
-import GoogleConnexion from "./GoogleConnexion";
-import GoogleDeconnexion from "./GoogleDeconnexion";
+import GoogleConnexion from "@/ui/Google/GoogleConnexion";
+import GoogleDeconnexion from "@/ui/Google/GoogleDeconnexion";
 import { useSession } from "next-auth/react";
 import styles from "./Header.module.css";
 import { useState } from "react";
@@ -20,7 +20,7 @@ export default function Header() {
   if (!user)
     return (
       <header className={styles.globalHeader}>
-        <h1>Echoes</h1>
+        <h1 className={styles.title}>ECHOES</h1>
         <nav className={styles.nav}>
           <LINK href="/">Explorer</LINK>
           <GoogleConnexion />

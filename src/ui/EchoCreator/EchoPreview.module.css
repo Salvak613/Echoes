@@ -1,0 +1,43 @@
+.previewImage {
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  border-radius: 50px;
+}
+
+.previewContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.textOverlay {
+  position: absolute;
+  font-family: var(--font-micro-5);
+  font-size: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.841);
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.top {
+  top: 9%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  padding-top: 1em;
+}
+
+.center {
+  top: 50%;
+  transform: translate(-50%, -35%);
+  text-align: center;
+}
+
+.bottom {
+  bottom: 5%;
+  text-align: center;
+}
