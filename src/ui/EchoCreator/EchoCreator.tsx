@@ -21,8 +21,8 @@ export default function EchoCreator({ musics, gifs }: EchoCreatorProps) {
   const [selectedGif, setSelectedGif] = useState<GifModel | null>(null);
   const [selectedMusic, setSelectedMusic] = useState<MusicModel | null>(null);
   const [text, setText] = useState("");
-  const [textPosition, setTextPosition] = useState<"top" | "center" | "bottom">(
-    "center"
+  const [textPosition, setTextPosition] = useState<"top" | "mid" | "bottom">(
+    "mid"
   );
   const { user } = useUserContext();
 

@@ -23,6 +23,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const fetchUser = async () => {
+      if (status === "loading") return;
       if (!session?.user?.email) return;
 
       try {

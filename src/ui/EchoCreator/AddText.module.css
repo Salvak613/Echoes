@@ -34,16 +34,6 @@
   gap: 10px;
 }
 
-.addButton {
-  width: 100px;
-  height: 40px;
-  background: var(--fourthColor);
-  border: none;
-  border-radius: 5px;
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-size: 1rem;
-}
-
 .positionButton {
   width: 100px;
   height: 40px;

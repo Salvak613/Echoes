@@ -4,7 +4,7 @@ import { GifModel } from "@/model/GifModel";
 type EchoPreviewProps = {
   selectedGif: GifModel | null;
   text?: string;
-  textPosition?: "top" | "center" | "bottom";
+  textPosition?: "top" | "mid" | "bottom";
 };
 
 export default function EchoPreview({
@@ -20,7 +20,6 @@ export default function EchoPreview({
 
   return (
     <div className={styles.previewContainer}>
-      <h2 className={styles.previewTitle}>Prévisualisation de l'écho</h2>
       <img
         src={`/Gif/${selectedGif.image_path}`}
         alt={selectedGif.name}

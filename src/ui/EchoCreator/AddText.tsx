@@ -3,8 +3,8 @@ import styles from "./AddText.module.css";
 type GifSelectorProps = {
   text: string;
   setText: (text: string) => void;
-  textPosition: "top" | "center" | "bottom";
-  setTextPosition: (position: "top" | "center" | "bottom") => void;
+  textPosition: "top" | "mid" | "bottom";
+  setTextPosition: (position: "top" | "mid" | "bottom") => void;
 };
 export default function AddText({
   text,
@@ -46,7 +46,7 @@ export default function AddText({
           </button>
           <button
             className={styles.positionButton}
-            onClick={() => setTextPosition("center")}
+            onClick={() => setTextPosition("mid")}
           >
             Centre
           </button>

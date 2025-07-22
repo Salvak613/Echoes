@@ -61,4 +61,44 @@ const gifMessages = {
   invalidId: "ID de GIF invalide",
 };
 
-export { infoMessages, userMessages, musicMessages, gifMessages };
+const echoMessages = {
+  addSuccess: "Carte ajoutée avec succès",
+  addFail:
+    "Erreur lors de l'ajout de la carte, veuillez réessayer ulterieurement",
+  deleteSuccess: "Carte supprimée avec succès",
+  deleteFail:
+    "Erreur lors de la suppression de la carte, veuillez réessayer ulterieurement",
+  updateSuccess: "Carte mise à jour avec succès",
+  updateFail:
+    "Erreur lors de la mise à jour de la carte, veuillez réessayer ulterieurement",
+  invalidData: "Les données fournies sont invalides",
+  notFound: "Aucune carte trouvée avec cet ID",
+  error:
+    "Erreur lors de la récupération des cartes, veuillez réessayer ulterieurement",
+  invalidId: "ID de carte invalide",
+};
+
+const textMessages = {
+  notFound: "Aucun texte trouvé avec cet ID",
+  error:
+    "Erreur lors de la récupération des textes, veuillez réessayer ulterieurement",
+  addSuccess: "Texte ajouté avec succès",
+  addFail: "Erreur lors de l'ajout du texte, veuillez réessayer ulterieurement",
+  deleteSuccess: "Texte supprimé avec succès",
+  deleteFail:
+    "Erreur lors de la suppression du texte, veuillez réessayer ulterieurement",
+  updateSuccess: "Texte mis à jour avec succès",
+  updateFail:
+    "Erreur lors de la mise à jour du texte, veuillez réessayer ulterieurement",
+  invalidData: "Les données fournies sont invalides",
+  invalidId: "ID de texte invalide",
+};
+
+export {
+  infoMessages,
+  userMessages,
+  musicMessages,
+  gifMessages,
+  echoMessages,
+  textMessages,
+};

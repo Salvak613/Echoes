@@ -6,6 +6,8 @@ const apiRoutes = {
   USERS: `${apiUrl}/api/users`,
   MUSICS: `${apiUrl}/api/musics`,
   GIFS: `${apiUrl}/api/gifs`,
+  ONEECHO: (id: number) => `${apiUrl}/api/echoes/${id}`,
+  ADDCARD: (email: string) => `${apiUrl}/api/users/${email}/collection`,
 };
 
 const appRoutes = {
