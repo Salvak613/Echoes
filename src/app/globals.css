@@ -59,6 +59,14 @@ a {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+
 main {
   height: var(--pageHeight);
   overflow-y: scroll;

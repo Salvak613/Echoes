@@ -7,7 +7,11 @@ export default function GoogleDeconnexion() {
 
   return (
     <div className={styles.button}>
-      {session && <button onClick={() => signOut()}>Se déconnecter</button>}
+      {session && (
+        <button onClick={() => signOut()} className={styles.logoutButton}>
+          <img src="/logout.png" className={styles.icon}></img>
+        </button>
+      )}
     </div>
   );
 }

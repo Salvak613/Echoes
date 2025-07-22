@@ -6,10 +6,12 @@ import GoogleConnexion from "./GoogleConnexion";
 import GoogleDeconnexion from "./GoogleDeconnexion";
 import { useSession } from "next-auth/react";
 import styles from "./Header.module.css";
+import { useState } from "react";
 
 export default function Header() {
   const { user } = useUserContext();
   const { data: session, status } = useSession();
+  const [showLogout, setShowLogout] = useState(false);
 
   if (status === "loading") {
     return null;
@@ -29,19 +31,30 @@ export default function Header() {
   return (
     <header className={styles.globalHeader}>
       <p className={styles.title}>Echoes</p>
-      <nav className={styles.nav}>
-        <LINK href="/">Explorer</LINK>
-        <LINK href="/creer">Créer</LINK>
-        <LINK href="/collection">Ma Collection</LINK>
+      <div className={styles.navigationContainer}>
+        <nav className={styles.nav}>
+          <LINK href="/">Explorer</LINK>
+          <LINK href="/creer">Créer</LINK>
+          <LINK href="/collection">Ma Collection</LINK>
+        </nav>
         {session?.user?.image && (
-          <img
-            src={session.user.image}
-            alt="Profil Google"
-            style={{ width: 32, height: 32, borderRadius: "50%" }}
-          />
+          <span
+            className={`${styles.profileWrapper} ${
+              showLogout ? styles.showLogout : ""
+            }`}
+          >
+            <img
+              src={session.user.image}
+              className={styles.profileImage}
+              alt="Profil Google"
+              onClick={() => setShowLogout(!showLogout)}
+            />
+            <span className={styles.logoutButton}>
+              <GoogleDeconnexion />
+            </span>
+          </span>
         )}
-        <GoogleDeconnexion />
-      </nav>
+      </div>
     </header>
   );
 }

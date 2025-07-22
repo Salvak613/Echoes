@@ -2,21 +2,13 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100vw;
   padding: 0 2rem;
-  display: flex;
-  align-items: center;
   background: #1a1a1a;
-  gap: 4rem;
   height: var(--headerHeight);
   border-bottom: 1px solid #ffffff;
   z-index: 4;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
 }
 
 .title {
@@ -24,4 +16,51 @@
   font-weight: 600;
   color: #ffffff;
   font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.navigationContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: margin-right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profileWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.profileImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.logoutButton {
+  position: absolute;
+  right: 45px;
+  opacity: 0;
+  transform: translateX(16px) scale(0.95);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profileWrapper.showLogout .logoutButton {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+}
+
+.navigationContainer:has(.profileWrapper.showLogout) .nav {
+  margin-right: 60px;
 }
