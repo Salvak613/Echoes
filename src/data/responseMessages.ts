@@ -15,15 +15,50 @@ const infoMessages = {
   addSuccess: "Information ajoutée avec succès",
   notFound: "Aucune information trouvée avec cet ID",
   updateSuccess: "Information mise à jour avec succès",
-}
+};
 
 const userMessages = {
   notFound: "Utilisateur non trouvé",
-  error: "Erreur lors de la récupération de l'utilisateur, veuillez réessayer ulterieurement",
+  error:
+    "Erreur lors de la récupération de l'utilisateur, veuillez réessayer ulterieurement",
   invalidEmail: "Adresse e-mail invalide",
   updateSuccess: "Utilisateur mis à jour avec succès",
   deleteSuccess: "Utilisateur supprimé avec succès",
-  deleteFail: "Erreur lors de la suppression de l'utilisateur, veuillez réessayer ulterieurement",
-}
+  deleteFail:
+    "Erreur lors de la suppression de l'utilisateur, veuillez réessayer ulterieurement",
+};
 
-export { infoMessages, userMessages }
+const musicMessages = {
+  notFound: "Aucune musique trouvée avec cet ID",
+  error:
+    "Erreur lors de la récupération des musiques, veuillez réessayer ulterieurement",
+  addSuccess: "Musique ajoutée avec succès",
+  addFail:
+    "Erreur lors de l'ajout de la musique, veuillez réessayer ulterieurement",
+  deleteSuccess: "Musique supprimée avec succès",
+  deleteFail:
+    "Erreur lors de la suppression de la musique, veuillez réessayer ulterieurement",
+  updateSuccess: "Musique mise à jour avec succès",
+  updateFail:
+    "Erreur lors de la mise à jour de la musique, veuillez réessayer ulterieurement",
+  invalidData: "Les données fournies sont invalides",
+  invalidId: "ID de musique invalide",
+};
+
+const gifMessages = {
+  notFound: "Aucun GIF trouvé avec cet ID",
+  error:
+    "Erreur lors de la récupération des GIFs, veuillez réessayer ulterieurement",
+  addSuccess: "GIF ajouté avec succès",
+  addFail: "Erreur lors de l'ajout du GIF, veuillez réessayer ulterieurement",
+  deleteSuccess: "GIF supprimé avec succès",
+  deleteFail:
+    "Erreur lors de la suppression du GIF, veuillez réessayer ulterieurement",
+  updateSuccess: "GIF mis à jour avec succès",
+  updateFail:
+    "Erreur lors de la mise à jour du GIF, veuillez réessayer ulterieurement",
+  invalidData: "Les données fournies sont invalides",
+  invalidId: "ID de GIF invalide",
+};
+
+export { infoMessages, userMessages, musicMessages, gifMessages };
