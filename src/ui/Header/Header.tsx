@@ -7,11 +7,14 @@ import GoogleDeconnexion from "@/ui/Google/GoogleDeconnexion";
 import { useSession } from "next-auth/react";
 import styles from "./Header.module.css";
 import { useState } from "react";
+import { useMute } from "@/context/MuteContext";
+import MuteButton from "@/ui/components/MuteButton";
 
 export default function Header() {
   const { user } = useUserContext();
   const { data: session, status } = useSession();
   const [showLogout, setShowLogout] = useState(false);
+  const { muted, setMuted } = useMute();
 
   if (status === "loading") {
     return null;
@@ -20,7 +23,9 @@ export default function Header() {
   if (!user)
     return (
       <header className={styles.globalHeader}>
-        <h1 className={styles.title}>ECHOES</h1>
+        <LINK href="/" className={styles.title}>
+          ECHOES
+        </LINK>
         <nav className={styles.nav}>
           <LINK href="/">Explorer</LINK>
           <GoogleConnexion />
@@ -30,7 +35,14 @@ export default function Header() {
 
   return (
     <header className={styles.globalHeader}>
-      <p className={styles.title}>Echoes</p>
+      <LINK href="/" className={styles.title}>
+        Echoes
+      </LINK>
+      <MuteButton
+        muted={muted}
+        setMuted={setMuted}
+        className={styles.muteButton}
+      />
       <div className={styles.navigationContainer}>
         <nav className={styles.nav}>
           <LINK href="/">Explorer</LINK>
@@ -51,6 +63,11 @@ export default function Header() {
             />
             <span className={styles.logoutButton}>
               <GoogleDeconnexion />
+              <MuteButton
+                muted={muted}
+                setMuted={setMuted}
+                className={styles.muteButton}
+              />
             </span>
           </span>
         )}

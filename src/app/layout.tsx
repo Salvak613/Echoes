@@ -3,6 +3,7 @@ import { Space_Grotesk, Micro_5 } from "next/font/google";
 import { UserProvider } from "@/context/UserContext";
 import SessionWrapper from "@/app/SessionWrapper";
 import Header from "@/ui/Header/Header";
+import { MuteProvider } from "@/context/MuteContext";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,8 +32,10 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.variable} ${micro5.variable}`}>
         <SessionWrapper>
           <UserProvider>
-            <Header />
-            <main>{children}</main>
+            <MuteProvider>
+              <Header />
+              <main>{children}</main>
+            </MuteProvider>
           </UserProvider>
         </SessionWrapper>
       </body>

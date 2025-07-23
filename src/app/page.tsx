@@ -1,9 +1,13 @@
 import styles from "./page.module.css";
+import { getEchoes } from "@/lib/card/getCards";
+import DisplayEchoes from "@/ui/mainPage/DisplayEchoes";
 
-export default function Home() {
+export default async function Home() {
+  const echoes = await getEchoes();
+
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Welcome to Next.js!</h1>
+      <DisplayEchoes echoes={echoes} />
     </div>
   );
 }

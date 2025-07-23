@@ -7,6 +7,8 @@ const apiRoutes = {
   MUSICS: `${apiUrl}/api/musics`,
   GIFS: `${apiUrl}/api/gifs`,
   ONEECHO: (id: number) => `${apiUrl}/api/echoes/${id}`,
+  ALLECHOES: `${apiUrl}/api/echoes`,
+  MYECHOES: (email: string) => `${apiUrl}/api/users/${email}/collection`,
   ADDCARD: (email: string) => `${apiUrl}/api/users/${email}/collection`,
 };
 

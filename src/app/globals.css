@@ -78,3 +78,18 @@ main {
   scrollbar-width: none;
   max-width: 1600px;
 }
+
+li {
+  list-style: none;
+}
+
+button {
+  max-width: 200px;
+  padding: 5px 10px;
+  height: 40px;
+  background: var(--fourthColor);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
+}

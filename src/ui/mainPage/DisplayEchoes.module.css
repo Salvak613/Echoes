@@ -1,0 +1,70 @@
+.echoImageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.echoText {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 200px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: white;
+  text-shadow: 0 0 6px #000, 0 0 2px #000;
+  font-family: var(--font-micro-5);
+  font-size: 1.5rem;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  pointer-events: none;
+  text-align: center;
+  word-break: break-word;
+}
+
+.textTop {
+  top: 10px;
+}
+.textCenter {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.textBottom {
+  bottom: 10px;
+}
+
+.echoesList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.echoImage {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.echoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}

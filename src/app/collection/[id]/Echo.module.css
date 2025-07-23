@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-evenly;
@@ -65,4 +66,37 @@
 .bottom {
   bottom: 5%;
   text-align: center;
+}
+
+.descriptionContainer {
+  display: flex;
+  background: var(--secondaryColor);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  border: 1px solid var(--fourthColor);
+  padding: 2rem;
+  gap: 16px;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.editLink {
+  display: flex;
+  align-items: center;
+  max-width: 200px;
+  padding: 5px 10px;
+  height: 40px;
+  background: var(--fourthColor);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1rem;
 }
