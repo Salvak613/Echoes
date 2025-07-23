@@ -26,6 +26,10 @@ export default async function EchoPage({ params }: PageParams) {
     return notFound();
   }
 
+  if (Echo.is_private === 1) {
+    return notFound();
+  }
+
   return (
     <div className={styles.page}>
       <div className={styles.container}>
