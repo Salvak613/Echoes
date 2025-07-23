@@ -2,23 +2,18 @@
   display: flex;
   background-color: var(--secondaryColor);
   padding: 15px;
-  width: 600px;
+  width: 500px;
   max-height: 300px;
   overflow: auto;
   border-radius: 25px 25px 0 0;
   border: solid 1px var(--fourthColor);
   border-bottom: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .container::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: transparent;
-}
-
-.container::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+  display: none;
 }
 
 .gifList {
@@ -38,12 +33,30 @@
   border: 1px solid transparent;
 }
 
-.gifItem {
-  border: 1px solid transparent;
-  border-radius: 5px;
+.container::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: rgba(136, 136, 136, 0.5);
 }
 
 .selected {
   border: 1px solid #fff;
   border-radius: 5px;
+}
+
+@media (max-width: 1160px) {
+  .container {
+    width: 100%;
+    min-width: 100px;
+    max-height: 200px;
+  }
+
+  .gifList img {
+    width: 80px;
+    height: 80px;
+  }
 }

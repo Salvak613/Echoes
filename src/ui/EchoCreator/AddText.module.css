@@ -1,9 +1,12 @@
 .textFooter {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  width: 100%;
   margin-top: 4px;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .charCount {
@@ -16,11 +19,10 @@
   color: #d00;
 }
 .container {
-  display: flex;
-  justify-content: center;
+  display: block;
   background-color: var(--secondaryColor);
   padding: 20px;
-  width: 600px;
+  width: 500px;
   height: 150px;
   overflow: auto;
   border-radius: 0 0 25px 25px;
@@ -45,7 +47,7 @@
 }
 
 .textArea {
-  width: 500px;
+  width: 90%;
   height: 50px;
   border: none;
   background-color: transparent;
@@ -56,4 +58,13 @@
   text-align: center;
   border: solid 1px var(--fourthColor);
   border-radius: 5px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1160px) {
+  .container {
+    width: 100%;
+    min-width: 100px;
+    max-height: 150px;
+  }
 }

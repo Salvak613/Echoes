@@ -89,3 +89,10 @@
   text-align: right;
   margin-right: 5px;
 }
+
+@media (max-width: 768px) {
+  .echoImage {
+    width: 150px;
+    height: 150px;
+  }
+}

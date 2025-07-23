@@ -34,7 +34,7 @@
 }
 
 .textArea {
-  width: 500px;
+  width: 100%;
   height: 300px;
   border: none;
   background-color: transparent;
@@ -125,4 +125,11 @@ input:checked + .slider:before {
   margin-left: 12px;
   font-weight: bold;
   color: #4caf50;
+}
+
+@media (max-width: 860px) {
+  .container {
+    width: auto;
+    max-width: 100%;
+  }
 }

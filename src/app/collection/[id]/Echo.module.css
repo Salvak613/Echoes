@@ -11,7 +11,7 @@
 
 .previewImage {
   width: 100%;
-  min-width: 500px;
+  min-width: 100px;
   height: auto;
   max-width: 1000px;
   border-radius: 50px;
@@ -39,7 +39,7 @@
 .textOverlay {
   position: absolute;
   font-family: var(--font-micro-5);
-  font-size: 2rem;
+  font-size: clamp(1rem, 3vw, 2rem);
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -99,4 +99,10 @@
   border-radius: 5px;
   font-family: var(--font-space-grotesk), sans-serif;
   font-size: 1rem;
+}
+
+@media (max-width: 540px) {
+  .descriptionContainer {
+    width: 100%;
+  }
 }

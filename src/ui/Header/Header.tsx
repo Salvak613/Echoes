@@ -54,7 +54,7 @@ export default function Header() {
         <nav className={styles.nav}>
           <LINK href="/">Explorer</LINK>
           <LINK href="/creer">Créer</LINK>
-          <LINK href="/collection">Ma Collection</LINK>
+          <LINK href="/collection">Collection</LINK>
         </nav>
         {session?.user?.image && (
           <span

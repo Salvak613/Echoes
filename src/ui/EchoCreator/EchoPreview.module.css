@@ -28,7 +28,7 @@
 .textOverlay {
   position: absolute;
   font-family: var(--font-micro-5);
-  font-size: 2rem;
+  font-size: clamp(1rem, 3vw, 2rem);
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -55,4 +55,11 @@
 .bottom {
   bottom: 5%;
   text-align: center;
+}
+
+@media (max-width: 1160px) {
+  .previewImage {
+    max-width: 100%;
+    min-width: 10px;
+  }
 }

@@ -35,11 +35,15 @@ export default function EchoCreator({ musics, gifs }: EchoCreatorProps) {
             selectedGif={selectedGif}
             onSelect={setSelectedGif}
           />
+        </div>
+        <div className={styles.musicSelector}>
           <MusicSelector
             musics={musics}
             selectedMusic={selectedMusic}
             onSelect={setSelectedMusic}
           />
+        </div>
+        <div className={styles.textInput}>
           <AddText
             text={text}
             setText={setText}
@@ -47,8 +51,6 @@ export default function EchoCreator({ musics, gifs }: EchoCreatorProps) {
             setTextPosition={setTextPosition}
           />
         </div>
-        <div className={styles.musicSelector}></div>
-        <div className={styles.textInput}></div>
       </section>
       <section className={styles.previewSection}>
         <div className={styles.preview}>
