@@ -67,4 +67,9 @@
     min-width: 100px;
     max-height: 150px;
   }
+  .positionButton {
+    width: 70px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
 }

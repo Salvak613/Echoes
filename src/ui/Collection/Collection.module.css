@@ -16,7 +16,7 @@
   color: white;
   text-shadow: 0 0 6px #000, 0 0 2px #000;
   font-family: var(--font-micro-5);
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: 1.5rem;
   padding: 4px 8px;
   box-sizing: border-box;
   pointer-events: none;
@@ -91,10 +91,4 @@
   width: 100%;
   border-radius: 0 0 15px 0;
   height: 30px;
-}
-
-@media (max-width: 540px) {
-  .descriptionContainer {
-    width: 100%;
-  }
 }
