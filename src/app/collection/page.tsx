@@ -10,7 +10,7 @@ export default async function CollectionPage() {
   if (!email) {
     return (
       <div className={styles.page}>
-        <h1 className={styles.title}>Ma Collection</h1>
+        <h1 className={styles.title}>MES ECHOS</h1>
         <p>Veuillez vous connecter pour voir votre collection.</p>
       </div>
     );
@@ -20,7 +20,7 @@ export default async function CollectionPage() {
   if (!echoes || echoes.length === 0) {
     return (
       <div className={styles.page}>
-        <h1 className={styles.title}>Ma Collection</h1>
+        <h1 className={styles.title}>MES ECHOS</h1>
         <p>Aucun écho disponible dans votre collection.</p>
       </div>
     );
@@ -28,7 +28,7 @@ export default async function CollectionPage() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Ma Collection</h1>
+      <h1 className={styles.title}>MES ECHOS</h1>
       <Collection echoes={echoes} />
     </div>
   );

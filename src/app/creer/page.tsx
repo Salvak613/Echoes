@@ -9,7 +9,7 @@ export default async function Creer() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Créer un écho</h1>
+      <h1 className={styles.title}>CREER UN ECHO</h1>
       <EchoCreator musics={musics} gifs={gifs} />
     </div>
   );

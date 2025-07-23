@@ -12,9 +12,8 @@ import GoogleProvider from "next-auth/providers/google";
 
 interface UserRow {
   id: number;
-email: string;
+  email: string;
   name: string;
-
 }
 
 export const authOptions: AuthOptions = {
@@ -45,7 +44,8 @@ export const authOptions: AuthOptions = {
     }) {
       if (!user.email) return false;
 
-      const name = user.name ? user.name.split(" ")[0] : "Gilbert";
+      let name = user.name ? user.name.split(" ")[0] : "Gilbert";
+      if (name.length > 15) name = name.slice(0, 15);
 
       try {
         const [rows] = await db.query<UserRow[] & RowDataPacket[]>(
@@ -54,10 +54,10 @@ export const authOptions: AuthOptions = {
         );
 
         if (rows.length === 0) {
-          await db.query(
-            `INSERT INTO user (name, email) VALUES (?, ?)`,
-            [name, user.email]
-          );
+          await db.query(`INSERT INTO user (name, email) VALUES (?, ?)`, [
+            name,
+            user.email,
+          ]);
         }
 
         return true;

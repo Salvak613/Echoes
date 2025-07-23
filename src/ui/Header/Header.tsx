@@ -26,10 +26,17 @@ export default function Header() {
         <LINK href="/" className={styles.title}>
           ECHOES
         </LINK>
-        <nav className={styles.nav}>
-          <LINK href="/">Explorer</LINK>
-          <GoogleConnexion />
-        </nav>
+        <MuteButton
+          muted={muted}
+          setMuted={setMuted}
+          className={styles.muteButton}
+        />
+        <div className={styles.navigationContainer}>
+          <nav className={styles.nav}>
+            <LINK href="/">Explorer</LINK>
+            <GoogleConnexion />
+          </nav>
+        </div>
       </header>
     );
 
@@ -63,11 +70,6 @@ export default function Header() {
             />
             <span className={styles.logoutButton}>
               <GoogleDeconnexion />
-              <MuteButton
-                muted={muted}
-                setMuted={setMuted}
-                className={styles.muteButton}
-              />
             </span>
           </span>
         )}

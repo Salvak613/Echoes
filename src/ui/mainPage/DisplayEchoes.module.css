@@ -39,7 +39,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 30px 15px;
 }
 
 .echoImage {
@@ -47,7 +47,7 @@
   height: 200px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
 }
 
 .echoItem {
@@ -67,4 +67,25 @@
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
+}
+
+.itemFooter {
+  display: flex;
+  justify-content: end;
+  height: 20px;
+  background: var(--secondaryColor);
+  color: var(--fourthColor);
+  border-radius: 0 0 15px 15px;
+  width: 100%;
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.itemFooter p {
+  direction: rtl;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+  margin-right: 5px;
 }

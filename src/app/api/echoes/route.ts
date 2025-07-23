@@ -33,3 +33,27 @@ export async function GET() {
     return NextResponse.json({ error: echoMessages.error }, { status: 500 });
   }
 }
+
+export async function DELETE(req: Request) {
+  try {
+    const url = new URL(req.url);
+    const idParam = url.searchParams.get("id");
+    const echoId = idParam !== null ? parseInt(idParam, 10) : NaN;
+
+    if (isNaN(echoId)) {
+      return NextResponse.json(
+        { error: echoMessages.invalidId },
+        { status: 400 }
+      );
+    }
+
+    await db.query("DELETE FROM card WHERE id = ?", [echoId]);
+    return NextResponse.json(
+      { message: echoMessages.deleteSuccess },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Erreur MySQL (DELETE) :", error);
+    return NextResponse.json({ error: echoMessages.error }, { status: 500 });
+  }
+}

@@ -4,6 +4,7 @@ import styles from "./DisplayEchoes.module.css";
 import { EchoModel } from "@/model/EchoModel";
 import { useState, useRef, useEffect } from "react";
 import { useMute } from "@/context/MuteContext";
+import LINK from "next/link";
 
 export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
   const { muted } = useMute();
@@ -46,38 +47,43 @@ export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className={styles.echoImageWrapper}>
-                  <img
-                    src={`/GIF/${
-                      isHovered
-                        ? echo.picture_image_path
-                        : echo.picture_miniature_path
-                    }`}
-                    alt={echo.text_content ?? ""}
-                    className={styles.echoImage}
-                  />
-                  {echo.music_path && (
-                    <audio
-                      ref={audioRef}
-                      src={`/Lofi/${echo.music_path}`}
-                      preload="auto"
+                <LINK href={`/echoes/${echo.id}`}>
+                  <div className={styles.echoImageWrapper}>
+                    <img
+                      src={`/GIF/${
+                        isHovered
+                          ? echo.picture_image_path
+                          : echo.picture_miniature_path
+                      }`}
+                      alt={echo.text_content ?? ""}
+                      className={styles.echoImage}
                     />
-                  )}
-                  {echo.text_content && (
-                    <span
-                      className={
-                        `${styles.echoText} ` +
-                        (echo.text_position === "top"
-                          ? styles.textTop
-                          : echo.text_position === "bottom"
-                          ? styles.textBottom
-                          : styles.textCenter)
-                      }
-                    >
-                      {echo.text_content}
-                    </span>
-                  )}
-                </div>
+                    {echo.music_path && (
+                      <audio
+                        ref={audioRef}
+                        src={`/Lofi/${echo.music_path}`}
+                        preload="auto"
+                      />
+                    )}
+                    {echo.text_content && (
+                      <span
+                        className={
+                          `${styles.echoText} ` +
+                          (echo.text_position === "top"
+                            ? styles.textTop
+                            : echo.text_position === "bottom"
+                            ? styles.textBottom
+                            : styles.textCenter)
+                        }
+                      >
+                        {echo.text_content}
+                      </span>
+                    )}
+                  </div>
+                  <div className={styles.itemFooter}>
+                    <p>publié par {echo.user_name || "Anonyme"}</p>
+                  </div>
+                </LINK>
               </li>
             );
           })}

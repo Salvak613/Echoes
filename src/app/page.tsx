@@ -7,6 +7,7 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
+      <h1>ECHOS RECENTS</h1>
       <DisplayEchoes echoes={echoes} />
     </div>
   );

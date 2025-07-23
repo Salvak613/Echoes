@@ -1,6 +1,7 @@
 .echoImageWrapper {
   position: relative;
   display: inline-block;
+  border-radius: 15px;
 }
 
 .echoText {
@@ -39,7 +40,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 30px 15px;
 }
 
 .echoImage {
@@ -47,7 +48,7 @@
   height: 300px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 15px;
+  box-shadow: inset 0 0 6px 6px rgba(0, 0, 0, 0.377);
 }
 
 .echoItem {
@@ -60,6 +61,11 @@
 .itemHeader {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  background: var(--fourthColor);
+  margin-bottom: 5px;
 }
 
 .page {
@@ -67,4 +73,22 @@
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
+}
+
+.itemActions {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+
+.itemActions button:nth-child(1) {
+  width: 100%;
+  border-radius: 0 0 0 15px;
+  height: 30px;
+}
+
+.itemActions button:nth-child(2) {
+  width: 100%;
+  border-radius: 0 0 15px 0;
+  height: 30px;
 }
