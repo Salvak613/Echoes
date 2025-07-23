@@ -5,7 +5,7 @@ import { EchoModel } from "@/model/EchoModel";
 import { echoMessages } from "@/data/responseMessages";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-import EchoViewer from "@/ui/Collection/EchoViewer";
+import EchoViewer from "@/ui/components/EchoSound";
 
 interface PageParams {
   params: {

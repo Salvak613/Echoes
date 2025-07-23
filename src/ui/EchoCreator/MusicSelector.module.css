@@ -6,6 +6,7 @@
   max-height: 150px;
   overflow: auto;
   border: solid 1px var(--fourthColor);
+  border-bottom: none;
 }
 
 .container::-webkit-scrollbar {

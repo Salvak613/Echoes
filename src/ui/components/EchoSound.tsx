@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "./EchoViewer.module.css";
 import { EchoModel } from "@/model/EchoModel";
 import { useRef, useEffect } from "react";
 import { useMute } from "@/context/MuteContext";
@@ -23,8 +22,7 @@ export default function EchoViewer({ Echo }: { Echo: EchoModel }) {
   }, [muted]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.muteButtonWrapper}></div>
+    <div>
       <audio ref={audioRef} style={{ display: "none" }} controls loop>
         {Echo.music_path && <source src={`/Lofi/${Echo.music_path}`} />}
         Votre navigateur ne supporte pas l'audio.

@@ -1,12 +1,13 @@
 .container {
   display: flex;
   background-color: var(--secondaryColor);
-  padding: 20px;
+  padding: 15px;
   width: 600px;
   max-height: 300px;
   overflow: auto;
   border-radius: 25px 25px 0 0;
   border: solid 1px var(--fourthColor);
+  border-bottom: none;
 }
 
 .container::-webkit-scrollbar {

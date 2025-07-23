@@ -3,7 +3,7 @@ import { getOne } from "@/lib/card/getCard";
 import { EchoModel } from "@/model/EchoModel";
 import { notFound } from "next/navigation";
 import { echoMessages } from "@/data/responseMessages";
-import EchoViewer from "@/ui/Collection/EchoViewer";
+import EchoViewer from "@/ui/components/EchoSound";
 
 interface PageParams {
   params: {
