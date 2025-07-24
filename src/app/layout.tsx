@@ -28,17 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${micro5.variable}`}>
-        <SessionWrapper>
+    <SessionWrapper>
+      <html lang="en">
+        <body className={`${spaceGrotesk.variable} ${micro5.variable}`}>
           <UserProvider>
             <MuteProvider>
               <Header />
               <main>{children}</main>
             </MuteProvider>
           </UserProvider>
-        </SessionWrapper>
-      </body>
-    </html>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }

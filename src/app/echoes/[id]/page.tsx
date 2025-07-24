@@ -4,6 +4,7 @@ import { EchoModel } from "@/model/EchoModel";
 import { notFound } from "next/navigation";
 import { echoMessages } from "@/data/responseMessages";
 import EchoViewer from "@/ui/components/EchoSound";
+import LikeHandler from "@/ui/mainPage/LikeHandler";
 
 interface PageParams {
   params: {
@@ -50,6 +51,7 @@ export default async function EchoPage({ params }: PageParams) {
           )}
         </div>
         <div className={styles.descriptionContainer}>
+          <LikeHandler Echo={Echo} />
           <div className={styles.itemHeader}>
             <p>
               Le{" "}

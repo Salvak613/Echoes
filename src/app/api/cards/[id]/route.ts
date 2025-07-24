@@ -29,7 +29,7 @@ export async function GET(
       LEFT JOIN music ON card.music_id = music.id
       LEFT JOIN text ON card.text_id = text.id
       LEFT JOIN user ON card.user_id = user.id
-      WHERE card.id = ?`,
+      WHERE card.id = ? AND is_private=false`,
       [id]
     );
     const results = Array.isArray(rows) ? rows : [];

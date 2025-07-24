@@ -5,11 +5,14 @@ const apiRoutes = {
   INFOS: `${apiUrl}/api/infos`,
   USERS: `${apiUrl}/api/users`,
   MUSICS: `${apiUrl}/api/musics`,
-  GIFS: `${apiUrl}/api/gifs`,
-  ONEECHO: (id: number) => `${apiUrl}/api/echoes/${id}`,
-  ALLECHOES: `${apiUrl}/api/echoes`,
-  MYECHOES: (email: string) => `${apiUrl}/api/users/${email}/collection`,
-  ADDCARD: (email: string) => `${apiUrl}/api/users/${email}/collection`,
+  GIFS: `${apiUrl}/api/pictures`,
+  ONEECHO: (id: number) => `${apiUrl}/api/cards/${id}`,
+  ALLECHOES: `${apiUrl}/api/cards`,
+  MYECHO: (email: string, id: number) =>
+    `${apiUrl}/api/users/${email}/cards/${id}`,
+  MYECHOES: (email: string) => `${apiUrl}/api/users/${email}/cards`,
+  ADDCARD: (email: string) => `${apiUrl}/api/users/${email}/cards`,
+  LIKES: (id: number) => `${apiUrl}/api/cards/${id}/likes`,
 };
 
 const appRoutes = {

@@ -70,7 +70,11 @@
 }
 
 .itemFooter {
+  width: 200px;
+  min-width: 0;
+  max-width: 200px;
   display: flex;
+  align-items: center;
   justify-content: end;
   height: 20px;
   background: var(--secondaryColor);
@@ -79,6 +83,8 @@
   width: 100%;
   font-size: 0.8rem;
   overflow: hidden;
+  border: solid 1px rgb(49, 49, 49);
+  border-top: none;
 }
 
 .itemFooter p {
@@ -94,5 +100,10 @@
   .echoImage {
     width: 150px;
     height: 150px;
+  }
+  .itemFooter {
+    width: 150px;
+    min-width: 0;
+    max-width: 150px;
   }
 }

@@ -1,6 +1,10 @@
 :root {
   --textColor: #ffffff;
-  --backgroundColor: #1a1a1a;
+  --backgroundColor: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 1) 0%,
+    rgba(42, 42, 42, 1) 100%
+  );
   --mainColor: #1a1a1a;
   --secondaryColor: #2a2a2a;
   --thirdColor: #ffffff;
@@ -28,7 +32,16 @@ body {
 body {
   color: var(--backgroundColor);
   height: 100dvh;
-  background: var(--backgroundColor);
+  background: linear-gradient(
+      135deg,
+      rgb(74, 74, 74) 0%,
+      rgba(26, 26, 26, 1) 20%,
+      rgb(57, 57, 57) 80%,
+      rgb(38, 38, 38) 100%
+    ),
+    url("/noise.svg");
+  background-blend-mode: overlay;
+  background-blend-mode: multiply;
   height: 100dvh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
