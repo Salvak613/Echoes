@@ -71,6 +71,7 @@
 
 .itemFooter {
   display: flex;
+  align-items: center;
   justify-content: end;
   height: 20px;
   background: var(--secondaryColor);
@@ -79,6 +80,8 @@
   width: 100%;
   font-size: 0.8rem;
   overflow: hidden;
+  border: solid 1px rgb(49, 49, 49);
+  border-top: none;
 }
 
 .itemFooter p {

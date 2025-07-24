@@ -50,6 +50,14 @@ const schema = `
     FOREIGN KEY (text_id) REFERENCES text(id),
     FOREIGN KEY (music_id) REFERENCES music(id)
   );
+
+  CREATE TABLE IF NOT EXISTS is_liked (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    card_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (card_id) REFERENCES card(id)
+  );
 `;
 
 const migrate = async () => {
