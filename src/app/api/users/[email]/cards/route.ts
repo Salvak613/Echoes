@@ -28,7 +28,8 @@ export async function GET(
         text.content AS text_content,
         text.position AS text_position,
         user.name AS user_name,
-        user.email AS user_email
+        user.email AS user_email,
+        (SELECT COUNT(*) FROM is_liked WHERE is_liked.card_id = card.id) AS likeCount
       FROM card
       LEFT JOIN picture ON card.picture_id = picture.id
       LEFT JOIN music ON card.music_id = music.id
