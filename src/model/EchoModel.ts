@@ -18,7 +18,9 @@ export class EchoModel {
     private _text_position: string | null,
     // User
     private _user_name: string | null,
-    private _user_email: string | null
+    private _user_email: string | null,
+    // Likes
+    private _likeCount: number
   ) {}
 
   get id(): number {
@@ -76,5 +78,10 @@ export class EchoModel {
   }
   get user_email(): string | null {
     return this._user_email;
+  }
+
+  //Likes
+  get likeCount(): number {
+    return this._likeCount;
   }
 }

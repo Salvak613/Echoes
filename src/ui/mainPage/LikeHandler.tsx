@@ -1,38 +1,81 @@
 "use client";
 
 import styles from "./LikeHandler.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { getLikes } from "@/lib/like/getLikes";
 import { addLike } from "@/lib/like/addLike";
 import { deleteLike } from "@/lib/like/deleteLike";
-import { LikeModel } from "@/model/LikeModel";
 import { EchoModel } from "@/model/EchoModel";
 import { useUserContext } from "@/context/UserContext";
-import { UserModel } from "@/model/UserModel";
 
 export default function LikeHandler({ Echo }: { Echo: EchoModel }) {
   const [likes, setLikes] = useState<number>(0);
+  const [displayedLikes, setDisplayedLikes] = useState<number>(0);
   const [isLike, setIsLike] = useState<boolean>(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const { user } = useUserContext();
+  const animationRef = useRef<number | null>(null);
+
+  const animateCounter = (from: number, to: number, duration: number = 800) => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
+    setIsAnimating(true);
+    const startTime = Date.now();
+    const difference = to - from;
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+
+      const currentValue = Math.round(from + difference * easeOutCubic);
+      setDisplayedLikes(currentValue);
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        setIsAnimating(false);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+  };
 
   useEffect(() => {
     const fetchLikes = async () => {
       if (!user) {
         setLikes(0);
+        setDisplayedLikes(0);
         setIsLike(false);
         return;
       }
       try {
         const res = await getLikes(Echo.id, user.id);
-        setLikes(res.likeCount ?? 0);
+        const newLikes = res.likeCount ?? 0;
+        setLikes(newLikes);
         setIsLike(!!res.isLiked);
+
+        if (newLikes > 0) {
+          animateCounter(0, newLikes, 1200);
+        } else {
+          setDisplayedLikes(0);
+        }
       } catch (error) {
         console.error("Error fetching likes:", error);
       }
     };
     fetchLikes();
   }, [Echo.id, user]);
+
+  useEffect(() => {
+    if (displayedLikes !== likes && !isAnimating) {
+      animateCounter(displayedLikes, likes, 600);
+    }
+  }, [likes]);
 
   const handleToggleLike = async () => {
     if (!user) {
@@ -54,12 +97,32 @@ export default function LikeHandler({ Echo }: { Echo: EchoModel }) {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className={styles.likeHandler}>
-      <h2>Likes: {likes}</h2>
-      <button onClick={handleToggleLike} className={styles.likeButton}>
-        {isLike ? "Unlike" : "Like"}
-      </button>
+      <div className={styles.likeContainer}>
+        <p
+          className={`${styles.likeCount} ${
+            isAnimating ? styles.animating : ""
+          }`}
+        >
+          {displayedLikes}
+        </p>
+        <button
+          onClick={handleToggleLike}
+          className={`${styles.likeButton} ${isLike ? styles.liked : ""}`}
+          disabled={!user ? true : isAnimating}
+        >
+          {isLike ? "❤️" : "🖤"}
+        </button>
+      </div>
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
   return (
     <div className={styles.page}>
       {echoes.length === 0 ? (
-        <p>Aucun écho disponible dans votre collection.</p>
+        <p>Aucun écho publié.</p>
       ) : (
         <ul className={styles.echoesList}>
           {echoes.map((echo: EchoModel, idx: number) => {
@@ -81,7 +81,11 @@ export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
                     )}
                   </div>
                   <div className={styles.itemFooter}>
-                    <p>publié par {echo.user_name || "Anonyme"}</p>
+                    <div className={styles.likeCount}>
+                      <p className={styles.heart}>♡{""}</p>
+                      <p>{echo.likeCount}</p>
+                    </div>
+                    <p>{echo.user_name || "Anonyme"}</p>
                   </div>
                 </LINK>
               </li>
