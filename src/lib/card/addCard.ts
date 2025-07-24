@@ -12,7 +12,7 @@ export async function addEcho(echo: {
   text: TextModel | null;
   user: UserModel | null;
 }) {
-  const res = await fetch(`${apiRoutes.USERS}/${echo.user?.email}/collection`, {
+  const res = await fetch(`${apiRoutes.USERS}/${echo.user?.email}/cards`, {
     method: "POST",
     headers: {
       Accept: "application/json",

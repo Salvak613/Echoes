@@ -94,6 +94,18 @@ const textMessages = {
   invalidId: "ID de texte invalide",
 };
 
+const likeMessages = {
+  addSuccess: "Like ajouté avec succès",
+  addFail: "Erreur lors de l'ajout du like, veuillez réessayer ulterieurement",
+  deleteSuccess: "Like supprimé avec succès",
+  deleteFail:
+    "Erreur lors de la suppression du like, veuillez réessayer ulterieurement",
+  notFound: "Aucun like trouvé avec cet ID",
+  error:
+    "Erreur lors de la récupération des likes, veuillez réessayer ulterieurement",
+  invalidId: "ID de like invalide",
+};
+
 export {
   infoMessages,
   userMessages,
@@ -101,4 +113,5 @@ export {
   gifMessages,
   echoMessages,
   textMessages,
+  likeMessages,
 };
