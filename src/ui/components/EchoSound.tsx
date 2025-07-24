@@ -11,7 +11,29 @@ export default function EchoViewer({ Echo }: { Echo: EchoModel }) {
   useEffect(() => {
     if (Echo.music_path && audioRef.current) {
       audioRef.current.load();
-      audioRef.current.play().catch(() => {});
+      audioRef.current.volume = 0;
+      audioRef.current
+        .play()
+        .then(() => {
+          const duration = 2000;
+          const step = 0.01;
+          const interval = duration / (1 / step);
+          let currentVolume = 0;
+          const fade = setInterval(() => {
+            currentVolume += step;
+            if (!audioRef.current) {
+              clearInterval(fade);
+              return;
+            }
+            if (currentVolume >= 1) {
+              audioRef.current.volume = 1;
+              clearInterval(fade);
+            } else {
+              audioRef.current.volume = currentVolume;
+            }
+          }, interval);
+        })
+        .catch(() => {});
     }
   }, [Echo.music_path]);
 

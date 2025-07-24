@@ -25,19 +25,59 @@ export default function EchoItem({
     }
   }, [muted]);
 
+  const fadeInAudio = (audio: HTMLAudioElement, duration = 2000) => {
+    audio.volume = 0;
+    audio.currentTime = 0;
+    audio.play();
+    const step = 0.01;
+    const interval = duration / (1 / step);
+    let currentVolume = 0;
+    const fade = setInterval(() => {
+      currentVolume += step;
+      if (currentVolume >= 1) {
+        audio.volume = 1;
+        clearInterval(fade);
+      } else {
+        audio.volume = currentVolume;
+      }
+    }, interval);
+
+    (audio as any)._fadeInterval = fade;
+  };
+
   const handleMouseEnter = () => {
     setIsHovered(true);
     if (echo.music_path && audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
+      fadeInAudio(audioRef.current);
     }
+  };
+
+  const fadeOutAudio = (audio: HTMLAudioElement, duration = 1000) => {
+    if ((audio as any)._fadeInterval) {
+      clearInterval((audio as any)._fadeInterval);
+      (audio as any)._fadeInterval = null;
+    }
+    const step = 0.01;
+    const interval = duration / (1 / step);
+    let currentVolume = audio.volume;
+    const fade = setInterval(() => {
+      currentVolume -= step;
+      if (currentVolume <= 0) {
+        audio.volume = 0;
+        audio.pause();
+        audio.currentTime = 0;
+        clearInterval(fade);
+      } else {
+        audio.volume = currentVolume;
+      }
+    }, interval);
+    (audio as any)._fadeOutInterval = fade;
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
     if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+      fadeOutAudio(audioRef.current);
     }
   };
 
