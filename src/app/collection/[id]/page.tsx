@@ -1,5 +1,5 @@
 import styles from "./Echo.module.css";
-import { getOne } from "@/lib/card/getCard";
+import { getOne } from "@/lib/card/getMyCard";
 import { notFound } from "next/navigation";
 import { EchoModel } from "@/model/EchoModel";
 import { echoMessages } from "@/data/responseMessages";
@@ -20,20 +20,16 @@ export default async function EchoPage({ params }: PageParams) {
     notFound();
   }
 
+  const session = await getServerSession();
+  if (!session || !session.user?.email) {
+    return notFound();
+  }
+
   let Echo: EchoModel;
   try {
-    Echo = await getOne(idNum);
+    Echo = await getOne(session.user.email, idNum);
   } catch (err: unknown) {
     console.error(echoMessages.error, err);
-    return notFound();
-  }
-
-  const session = await getServerSession();
-  if (!session) {
-    return notFound();
-  }
-
-  if (Echo.user_email !== session.user?.email) {
     return notFound();
   }
 

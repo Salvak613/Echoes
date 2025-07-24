@@ -8,6 +8,8 @@ const apiRoutes = {
   GIFS: `${apiUrl}/api/gifs`,
   ONEECHO: (id: number) => `${apiUrl}/api/echoes/${id}`,
   ALLECHOES: `${apiUrl}/api/echoes`,
+  MYECHO: (email: string, id: number) =>
+    `${apiUrl}/api/users/${email}/collection/${id}`,
   MYECHOES: (email: string) => `${apiUrl}/api/users/${email}/collection`,
   ADDCARD: (email: string) => `${apiUrl}/api/users/${email}/collection`,
 };

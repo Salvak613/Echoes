@@ -95,4 +95,9 @@
     width: 150px;
     height: 150px;
   }
+  .itemFooter {
+    width: 150px;
+    min-width: 0;
+    max-width: 150px;
+  }
 }
