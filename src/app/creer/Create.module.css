@@ -6,4 +6,6 @@
   background-color: var(--backgroundColor);
   padding: 20px;
   box-sizing: border-box;
+  max-width: 1350px;
+  margin: 0 auto;
 }
