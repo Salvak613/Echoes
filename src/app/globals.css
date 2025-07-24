@@ -34,9 +34,9 @@ body {
   height: 100dvh;
   background: linear-gradient(
       135deg,
-      rgba(42, 42, 42, 1) 0%,
+      rgb(74, 74, 74) 0%,
       rgba(26, 26, 26, 1) 20%,
-      rgba(42, 42, 42, 1) 80%,
+      rgb(57, 57, 57) 80%,
       rgb(38, 38, 38) 100%
     ),
     url("/noise.svg");

@@ -1,35 +1,43 @@
-import { NextRequest, NextResponse } from "next/server";
+import { getToken } from "next-auth/jwt";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-const API_PROTECTED_PATH = /^\/api\/infos$/;
-const PAGE_PROTECTED_PATHS = [
-  "/infos/ajouter-info",
-  /^\/infos\/\d+\/editer-info$/,
-];
+const publicPaths = ["/", "/echoes"];
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const method = request.method;
 
-  if (API_PROTECTED_PATH.test(pathname) && method !== "GET") {
-    return NextResponse.json(
-      { error: "Forbidden - Only GET method allowed" },
-      { status: 403 }
-    );
-  }
-
+  // Laisser passer tous les fichiers statiques
   if (
-    PAGE_PROTECTED_PATHS.some((path) =>
-      typeof path === "string" ? pathname === path : path.test(pathname)
-    )
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/api/") ||
+    pathname.startsWith("/static/") ||
+    pathname.includes(".") // Tous les fichiers avec extension
   ) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/non-autorise";
-    return NextResponse.redirect(url);
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  const res = NextResponse.next();
+
+  const token = await getToken({
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET,
+  });
+
+  const isPublicPath = publicPaths.some(
+    (p) => pathname === p || pathname.startsWith(p + "/")
+  );
+
+  if (!token && !isPublicPath) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: res.headers });
+  }
+  return res;
 }
 
 export const config = {
-  matcher: ["/api/infos", "/infos/ajouter-info", "/infos/(.*)/editer-info"],
+  matcher: ["/((?!api/|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
