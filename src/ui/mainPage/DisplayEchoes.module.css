@@ -110,6 +110,17 @@
   margin-bottom: 3px;
 }
 
+.sortSelect {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: solid 1px var(--mainColor);
+  background: var(--secondaryColor);
+  color: var(--fourthColor);
+  margin-bottom: 50px;
+}
+
 @media (max-width: 768px) {
   .echoImage {
     width: 150px;

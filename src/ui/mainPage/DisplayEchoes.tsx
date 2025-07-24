@@ -2,97 +2,55 @@
 
 import styles from "./DisplayEchoes.module.css";
 import { EchoModel } from "@/model/EchoModel";
-import { useState, useRef, useEffect } from "react";
-import { useMute } from "@/context/MuteContext";
-import LINK from "next/link";
+import EchoItem from "./EchoItem";
+import { useState } from "react";
 
 export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
-  const { muted } = useMute();
+  const [sort, setSort] = useState("recent");
+  const sortedEchoes = [...echoes].sort((a, b) => {
+    switch (sort) {
+      case "recents":
+        return (
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
+      case "old":
+        return (
+          new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+        );
+      case "popular":
+        return b.likeCount - a.likeCount;
+      case "unpopular":
+        return a.likeCount - b.likeCount;
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className={styles.page}>
-      {echoes.length === 0 ? (
-        <p>Aucun écho publié.</p>
-      ) : (
-        <ul className={styles.echoesList}>
-          {echoes.map((echo: EchoModel, idx: number) => {
-            const [isHovered, setIsHovered] = useState(false);
-            const audioRef = useRef<HTMLAudioElement>(null);
-
-            useEffect(() => {
-              if (audioRef.current) {
-                audioRef.current.muted = muted;
-              }
-            }, [muted]);
-
-            const handleMouseEnter = () => {
-              setIsHovered(true);
-              if (echo.music_path && audioRef.current) {
-                audioRef.current.currentTime = 0;
-                audioRef.current.play();
-              }
-            };
-
-            const handleMouseLeave = () => {
-              setIsHovered(false);
-              if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
-              }
-            };
-
-            return (
-              <li
-                className={styles.echoItem}
-                key={echo.id || idx}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <LINK href={`/echoes/${echo.id}`}>
-                  <div className={styles.echoImageWrapper}>
-                    <img
-                      src={`/GIF/${
-                        isHovered
-                          ? echo.picture_image_path
-                          : echo.picture_miniature_path
-                      }`}
-                      alt={echo.text_content ?? ""}
-                      className={styles.echoImage}
-                    />
-                    {echo.music_path && (
-                      <audio
-                        ref={audioRef}
-                        src={`/Lofi/${echo.music_path}`}
-                        preload="auto"
-                      />
-                    )}
-                    {echo.text_content && (
-                      <span
-                        className={
-                          `${styles.echoText} ` +
-                          (echo.text_position === "top"
-                            ? styles.textTop
-                            : echo.text_position === "bottom"
-                            ? styles.textBottom
-                            : styles.textCenter)
-                        }
-                      >
-                        {echo.text_content}
-                      </span>
-                    )}
-                  </div>
-                  <div className={styles.itemFooter}>
-                    <div className={styles.likeCount}>
-                      <p className={styles.heart}>♡{""}</p>
-                      <p>{echo.likeCount}</p>
-                    </div>
-                    <p>{echo.user_name || "Anonyme"}</p>
-                  </div>
-                </LINK>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      <div className={styles.sortContainer}>
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className={styles.sortSelect}
+        >
+          <option value="recents">Récents</option>
+          <option value="old">Anciens</option>
+          <option value="popular">Populaires</option>
+          <option value="unpopular">Moins populaires</option>
+        </select>
+      </div>
+      <div className={styles.echoesContainer}>
+        {echoes.length === 0 ? (
+          <p>Aucun écho publié.</p>
+        ) : (
+          <ul className={styles.echoesList}>
+            {sortedEchoes.map((echo) => (
+              <EchoItem echo={echo} key={echo.id} />
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
