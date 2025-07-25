@@ -3,12 +3,10 @@ import { apiRoutes } from "@/data/ROUTES";
 import { LikeModel } from "@/model/LikeModel";
 import { EchoModel } from "@/model/EchoModel";
 
-interface AddLikeResponse extends LikeModel {}
-
 export async function addLike(
   echo: EchoModel,
   userId: number
-): Promise<AddLikeResponse> {
+): Promise<LikeModel> {
   const res = await fetch(apiRoutes.LIKES(echo.id), {
     method: "POST",
     headers: {
