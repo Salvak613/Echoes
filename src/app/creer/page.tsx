@@ -6,19 +6,19 @@ import EchoCreator from "@/ui/EchoCreator/EchoCreator";
 export default async function Creer() {
   let musics = [];
   let gifs = [];
-  let error = "";
+  let fetchError = "";
   try {
     musics = await fetchMusics();
     gifs = await fetchGifs();
-  } catch (error: unknown) {
-    error = "Erreur lors du chargement des musiques ou des gifs.";
+  } catch (_err: unknown) {
+    fetchError = "Erreur lors du chargement des musiques ou des gifs.";
   }
 
-  if (error) {
+  if (fetchError) {
     return (
       <div className={styles.page}>
         <h1 className={styles.title}>CREER UN ECHO</h1>
-        <div style={{ color: "red", margin: "2rem 0" }}>{error}</div>
+        <div style={{ color: "red", margin: "2rem 0" }}>{fetchError}</div>
       </div>
     );
   }
