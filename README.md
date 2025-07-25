@@ -1,3 +1,7 @@
+# Contexte
+
+Ce projet est issu du checkpoint 4 de la formation DWWM de la Wild Code School. Il etait demandé de créer un site de A à Z avec un CRUD complet en 2 jours 1/2.
+
 # Echoes
 
 Echoes est une application web développée avec Next.js et TypeScript, c'est un blog/journal intime/réseau social qui permet de créer des "échos", petits articles ponctués d'animation pixel-art et de musique lofi.
@@ -10,6 +14,10 @@ Echoes est une application web développée avec Next.js et TypeScript, c'est un
 - Middleware pour la sécurité et la gestion des sessions
 - Utilisation de modèles TypeScript pour la structure des données
 - Intégration de fichiers multimédias (images, gifs, mp3)
+
+## Base de Donnée
+
+![Screenshot](public/EchoesBDD.png)
 
 ## Structure du projet
 
