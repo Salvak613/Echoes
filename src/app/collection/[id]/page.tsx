@@ -7,8 +7,14 @@ import { getServerSession } from "next-auth";
 import Link from "next/link";
 import EchoViewer from "@/ui/components/EchoSound";
 
-export default async function EchoPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+interface PageParams {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export default async function EchoPage({ params }: PageParams) {
+  const { id } = await params;
   const idNum = parseInt(id, 10);
   if (isNaN(idNum)) {
     notFound();
