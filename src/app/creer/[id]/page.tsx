@@ -6,19 +6,18 @@ import { getServerSession } from "next-auth";
 import styles from "./OptionsPage.module.css";
 import AddInfos from "@/ui/EchoCreator/AddInfos";
 
-interface PageParams {
-  params: {
-    id: string;
-  };
-}
-
-export default async function OptionsPage({ params }: PageParams) {
-  const session = await getServerSession();
+export default async function OptionsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
-  const idNum = parseInt(id, 10);
+  const idNum = parseInt(id || "", 10);
   if (isNaN(idNum)) {
     notFound();
   }
+
+  const session = await getServerSession();
 
   let Echo: EchoModel;
   if (!session || !session.user?.email) {
