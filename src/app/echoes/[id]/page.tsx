@@ -6,15 +6,13 @@ import { echoMessages } from "@/data/responseMessages";
 import EchoViewer from "@/ui/components/EchoSound";
 import LikeHandler from "@/ui/mainPage/LikeHandler";
 
-interface PageParams {
-  params: {
-    id: string;
-  };
-}
-
-export default async function EchoPage({ params }: PageParams) {
+export default async function EchoPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
-  const idNum = parseInt(id, 10);
+  const idNum = parseInt(id || "", 10);
   if (isNaN(idNum)) {
     notFound();
   }
@@ -27,7 +25,7 @@ export default async function EchoPage({ params }: PageParams) {
     return notFound();
   }
 
-  if (Echo.is_private === 1) {
+  if (Echo.is_private === true) {
     return notFound();
   }
 
