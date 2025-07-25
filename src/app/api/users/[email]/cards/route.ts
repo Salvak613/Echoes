@@ -10,11 +10,8 @@ interface InsertResult {
 
 import { NextRequest } from "next/server";
 
-export async function GET(
-  req: NextRequest,
-  context: { params: { email: string } }
-) {
-  const { email } = context.params;
+export async function GET(req: NextRequest) {
+  const email = req.nextUrl.pathname.split("/").filter(Boolean).at(-2);
   try {
     const [rows] = await db.query(
       `SELECT
