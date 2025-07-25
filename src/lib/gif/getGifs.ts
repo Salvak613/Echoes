@@ -10,5 +10,9 @@ export async function getGifs() {
     },
   });
   if (!res.ok) throw new Error(gifMessages.error);
+  const contentType = res.headers.get("content-type");
+  if (!contentType || !contentType.includes("application/json")) {
+    throw new Error("Réponse du serveur invalide (pas du JSON)");
+  }
   return res.json();
 }
