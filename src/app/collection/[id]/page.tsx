@@ -14,7 +14,7 @@ interface PageParams {
 }
 
 export default async function EchoPage({ params }: PageParams) {
-  const { id } = await params;
+  const { id } = params;
   const idNum = parseInt(id, 10);
   if (isNaN(idNum)) {
     notFound();
