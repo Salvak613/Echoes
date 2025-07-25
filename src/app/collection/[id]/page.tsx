@@ -74,7 +74,7 @@ export default async function EchoPage({ params }: PageParams) {
           </div>
           <p className={styles.description}>{Echo.description}</p>
           <Link href={`/creer/${Echo.id}`} className={styles.editLink}>
-            Editer l'article
+            Editer l&apos;article
           </Link>
         </div>
       </div>

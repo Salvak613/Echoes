@@ -7,12 +7,11 @@ const publicPaths = ["/", "/echoes"];
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Laisser passer tous les fichiers statiques
   if (
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/api/") ||
     pathname.startsWith("/static/") ||
-    pathname.includes(".") // Tous les fichiers avec extension
+    pathname.includes(".")
   ) {
     return NextResponse.next();
   }

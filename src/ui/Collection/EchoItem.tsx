@@ -1,3 +1,7 @@
+interface AudioWithFade extends HTMLAudioElement {
+  _fadeInterval?: ReturnType<typeof setInterval>;
+  _fadeOutInterval?: ReturnType<typeof setInterval>;
+}
 import { useState, useRef, useEffect } from "react";
 import LINK from "next/link";
 import styles from "./Collection.module.css";
@@ -26,23 +30,23 @@ export default function EchoItem({
   }, [muted]);
 
   const fadeInAudio = (audio: HTMLAudioElement, duration = 2000) => {
-    audio.volume = 0;
-    audio.currentTime = 0;
-    audio.play();
+    const audioWithFade = audio as AudioWithFade;
+    audioWithFade.volume = 0;
+    audioWithFade.currentTime = 0;
+    audioWithFade.play();
     const step = 0.01;
     const interval = duration / (1 / step);
     let currentVolume = 0;
     const fade = setInterval(() => {
       currentVolume += step;
       if (currentVolume >= 1) {
-        audio.volume = 1;
+        audioWithFade.volume = 1;
         clearInterval(fade);
       } else {
-        audio.volume = currentVolume;
+        audioWithFade.volume = currentVolume;
       }
     }, interval);
-
-    (audio as any)._fadeInterval = fade;
+    audioWithFade._fadeInterval = fade;
   };
 
   const handleMouseEnter = () => {
@@ -53,25 +57,26 @@ export default function EchoItem({
   };
 
   const fadeOutAudio = (audio: HTMLAudioElement, duration = 1000) => {
-    if ((audio as any)._fadeInterval) {
-      clearInterval((audio as any)._fadeInterval);
-      (audio as any)._fadeInterval = null;
+    const audioWithFade = audio as AudioWithFade;
+    if (audioWithFade._fadeInterval) {
+      clearInterval(audioWithFade._fadeInterval);
+      audioWithFade._fadeInterval = undefined;
     }
     const step = 0.01;
     const interval = duration / (1 / step);
-    let currentVolume = audio.volume;
+    let currentVolume = audioWithFade.volume;
     const fade = setInterval(() => {
       currentVolume -= step;
       if (currentVolume <= 0) {
-        audio.volume = 0;
-        audio.pause();
-        audio.currentTime = 0;
+        audioWithFade.volume = 0;
+        audioWithFade.pause();
+        audioWithFade.currentTime = 0;
         clearInterval(fade);
       } else {
-        audio.volume = currentVolume;
+        audioWithFade.volume = currentVolume;
       }
     }, interval);
-    (audio as any)._fadeOutInterval = fade;
+    audioWithFade._fadeOutInterval = fade;
   };
 
   const handleMouseLeave = () => {

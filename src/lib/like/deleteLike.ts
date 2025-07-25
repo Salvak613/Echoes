@@ -3,11 +3,6 @@ import { apiRoutes } from "@/data/ROUTES";
 import { LikeModel } from "@/model/LikeModel";
 import { EchoModel } from "@/model/EchoModel";
 
-interface DeleteLikeParams {
-  echo: EchoModel;
-  userId: number;
-}
-
 interface DeleteLikeResponse extends LikeModel {}
 
 export async function deleteLike(

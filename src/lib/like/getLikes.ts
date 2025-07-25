@@ -1,6 +1,5 @@
 import { infoMessages } from "@/data/responseMessages";
 import { apiRoutes } from "@/data/ROUTES";
-import { LikeModel } from "@/model/LikeModel";
 
 export async function getLikes(
   cardId: number,

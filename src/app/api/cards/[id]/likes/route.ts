@@ -45,13 +45,12 @@ export async function GET(req: Request) {
     }
 
     return NextResponse.json({ likeCount, isLiked });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: likeMessages.error }, { status: 500 });
   }
 }
 
 export async function POST(req: Request) {
-  const { params }: { params: Promise<{ id: string }> } = req as any;
   try {
     const { user_id, echo } = await req.json();
     const echoId = echo?.id;
@@ -71,7 +70,7 @@ export async function POST(req: Request) {
       message: likeMessages.addSuccess,
       insertedId: result.insertId,
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Erreur MySQL (POST) :", error);
     return NextResponse.json({ error: likeMessages.error }, { status: 500 });
   }
@@ -94,7 +93,7 @@ export async function DELETE(req: Request) {
       echoId,
     ]);
     return NextResponse.json({ message: likeMessages.deleteSuccess });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Erreur MySQL (DELETE) :", error);
     return NextResponse.json({ error: likeMessages.error }, { status: 500 });
   }

@@ -8,11 +8,13 @@ interface InsertResult {
   warningStatus?: number;
 }
 
+import { NextRequest } from "next/server";
+
 export async function GET(
-  req: Request,
-  { params }: { params: { email: string } }
+  req: NextRequest,
+  context: { params: { email: string } }
 ) {
-  const { email } = params;
+  const { email } = context.params;
   try {
     const [rows] = await db.query(
       `SELECT

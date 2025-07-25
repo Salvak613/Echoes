@@ -1,5 +1,3 @@
-import { get } from "http";
-
 export class EchoModel {
   constructor(
     private _id: number,

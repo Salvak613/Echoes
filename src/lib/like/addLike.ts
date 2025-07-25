@@ -3,11 +3,6 @@ import { apiRoutes } from "@/data/ROUTES";
 import { LikeModel } from "@/model/LikeModel";
 import { EchoModel } from "@/model/EchoModel";
 
-interface AddLikeParams {
-  echo: EchoModel;
-  userId: number;
-}
-
 interface AddLikeResponse extends LikeModel {}
 
 export async function addLike(

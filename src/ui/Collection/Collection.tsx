@@ -3,7 +3,7 @@
 import styles from "./Collection.module.css";
 import { EchoModel } from "@/model/EchoModel";
 import EchoItem from "./EchoItem";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import ConfirmModal from "@/ui/Collection/ConfirmModal";
 import { useMute } from "@/context/MuteContext";
 import { deleteEcho } from "@/lib/card/deleteCard";
@@ -25,7 +25,7 @@ export default function Collection({ echoes }: { echoes: EchoModel[] }) {
 
   const handleConfirmDelete = async () => {
     if (pendingDeleteId !== null) {
-      const { response, status } = await deleteEcho(pendingDeleteId);
+      const { status } = await deleteEcho(pendingDeleteId);
       if (status === 200) {
         setModalMessage(echoMessages.deleteSuccess);
         setTimeout(() => {

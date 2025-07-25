@@ -9,7 +9,6 @@ type GifSelectorProps = {
 export default function AddText({
   text,
   setText,
-  textPosition,
   setTextPosition,
 }: GifSelectorProps) {
   return (

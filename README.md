@@ -86,4 +86,4 @@ src/
 
 ## Licence
 
-Ce projet est sous licence MIT.
+Ce projet est sous licence MIT. Ou pas. Peut-être.

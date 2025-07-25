@@ -6,7 +6,7 @@ import GoogleConnexion from "@/ui/Google/GoogleConnexion";
 import GoogleDeconnexion from "@/ui/Google/GoogleDeconnexion";
 import { useSession } from "next-auth/react";
 import styles from "./Header.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMute } from "@/context/MuteContext";
 import MuteButton from "@/ui/components/MuteButton";
 
@@ -15,6 +15,16 @@ export default function Header() {
   const { data: session, status } = useSession();
   const [showLogout, setShowLogout] = useState(false);
   const { muted, setMuted } = useMute();
+
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (session?.user?.image) {
+      const img = new Image();
+      img.onload = () => setImageLoaded(true);
+      img.src = session.user.image;
+    }
+  }, [session?.user?.image]);
 
   if (status === "loading") {
     return null;
@@ -62,12 +72,21 @@ export default function Header() {
               showLogout ? styles.showLogout : ""
             }`}
           >
-            <img
-              src={session.user.image}
-              className={styles.profileImage}
-              alt="Profil Google"
-              onClick={() => setShowLogout(!showLogout)}
-            />
+            {imageLoaded ? (
+              <img
+                src={session.user.image}
+                className={styles.profileImage}
+                alt="Profil Google"
+                onClick={() => setShowLogout(!showLogout)}
+              />
+            ) : (
+              <div
+                className={styles.avatarPlaceholder}
+                onClick={() => setShowLogout(!showLogout)}
+              >
+                {session?.user?.name?.[0]?.toUpperCase() || "U"}
+              </div>
+            )}
             <span className={styles.logoutButton}>
               <GoogleDeconnexion />
             </span>

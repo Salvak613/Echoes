@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import styles from "./MusicSelector.module.css";
 import { MusicModel } from "@/model/MusicModel";
 
@@ -55,7 +55,7 @@ export default function MusicSelector({
 
       <audio ref={audioRef} style={{ display: "none" }} controls>
         {selectedMusic && <source src={`/Lofi/${selectedMusic.music_path}`} />}
-        Votre navigateur ne supporte pas l'audio.
+        Votre navigateur ne supporte pas l&apos;audio.
       </audio>
     </div>
   );

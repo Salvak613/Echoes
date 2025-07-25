@@ -47,7 +47,7 @@ export default function EchoViewer({ Echo }: { Echo: EchoModel }) {
     <div>
       <audio ref={audioRef} style={{ display: "none" }} controls loop>
         {Echo.music_path && <source src={`/Lofi/${Echo.music_path}`} />}
-        Votre navigateur ne supporte pas l'audio.
+        Votre navigateur ne supporte pas l&apos;audio.
       </audio>
     </div>
   );

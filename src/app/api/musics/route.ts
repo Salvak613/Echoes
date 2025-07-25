@@ -1,16 +1,10 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { musicMessages } from "@/data/responseMessages";
-import { MusicModel } from "@/model/MusicModel";
 
 interface InsertResult {
   insertId: number;
   affectedRows?: number;
-  warningStatus?: number;
-}
-
-interface UpdateResult {
-  affectedRows: number;
   warningStatus?: number;
 }
 
