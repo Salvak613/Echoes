@@ -117,7 +117,7 @@ export default function EchoItem({
       <LINK href={`/collection/${echo.id}`} key={echo.id}>
         <div className={styles.echoImageWrapper}>
           <img
-            src={`/GIF/${
+            src={`/Gif/${
               isHovered ? echo.picture_image_path : echo.picture_miniature_path
             }`}
             alt={echo.text_content ?? ""}
