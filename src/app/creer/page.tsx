@@ -10,7 +10,7 @@ export default async function Creer() {
   try {
     musics = await fetchMusics();
     gifs = await fetchGifs();
-  } catch (e) {
+  } catch (error: unknown) {
     error = "Erreur lors du chargement des musiques ou des gifs.";
   }
 
