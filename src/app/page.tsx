@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import styles from "./page.module.css";
 import { getEchoes } from "@/lib/card/getCards";
 import DisplayEchoes from "@/ui/mainPage/DisplayEchoes";
