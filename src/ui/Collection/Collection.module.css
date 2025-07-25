@@ -1,7 +1,7 @@
 .echoImageWrapper {
   position: relative;
   display: inline-block;
-  border-radius: 15px;
+  z-index: 10;
 }
 
 .echoText {
