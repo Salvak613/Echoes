@@ -89,7 +89,7 @@ export default function EchoItem({ echo }: { echo: EchoModel }) {
       <LINK href={`/echoes/${echo.id}`}>
         <div className={styles.echoImageWrapper}>
           <img
-            src={`/GiF/${
+            src={`/Gif/${
               isHovered ? echo.picture_image_path : echo.picture_miniature_path
             }`}
             alt={echo.text_content ?? ""}
