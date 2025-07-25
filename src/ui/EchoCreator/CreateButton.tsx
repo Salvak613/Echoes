@@ -11,7 +11,7 @@ import Loader from "@/ui/Loader";
 type CreateButtonParams = {
   selectedGif: GifModel | null;
   selectedMusic: MusicModel | null;
-  text: TextModel | null;
+  text: string;
   textPosition: TextModel["position"];
   user: UserModel | null;
 };
@@ -35,7 +35,7 @@ export default function CreateButton({
       const echo = {
         selectedGif,
         selectedMusic,
-        text,
+        text: text,
         textPosition,
         user,
       };

@@ -9,7 +9,7 @@ export async function addEcho(echo: {
   selectedGif: GifModel | null;
   selectedMusic: MusicModel | null;
   textPosition: TextModel["position"];
-  text: TextModel | null;
+  text: string;
   user: UserModel | null;
 }) {
   const res = await fetch(`${apiRoutes.USERS}/${echo.user?.email}/cards`, {
