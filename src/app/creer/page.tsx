@@ -11,7 +11,7 @@ export default async function Creer() {
     musics = await fetchMusics();
     gifs = await fetchGifs();
   } catch {
-    fetchError = "Erreur lors du chargement des musiques ou des gifs.";
+    fetchError = "Erreur lors du chargement des musiques ou des gifss.";
   }
 
   if (fetchError) {
