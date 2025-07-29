@@ -40,7 +40,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 30px 15px;
+  gap: 30px 30px;
 }
 
 .echoImage {
@@ -72,6 +72,7 @@
   border: solid 1px rgb(49, 49, 49);
   border-bottom: none;
   font-size: 0.8rem;
+  cursor: default;
 }
 
 .itemHeaderLeft {
@@ -106,6 +107,10 @@
   border: solid 1px rgb(49, 49, 49);
   border-top: none;
   font-size: 0.8rem;
+  cursor: default;
+}
+.itemActions button:nth-child(1):active {
+  scale: 0.98;
 }
 
 .itemActions button:nth-child(2) {
@@ -121,6 +126,11 @@
   border: solid 1px rgb(49, 49, 49);
   border-top: none;
   font-size: 0.8rem;
+  cursor: default;
+}
+
+.itemActions button:nth-child(2):active {
+  scale: 0.98;
 }
 
 .heartIcon {
