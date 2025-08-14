@@ -4,6 +4,7 @@ import styles from "./DisplayEchoes.module.css";
 import { EchoModel } from "@/model/EchoModel";
 import EchoItem from "./EchoItem";
 import { useState } from "react";
+import { useUserContext } from "@/context/UserContext";
 
 export default function DisplayEchoes({
   echoes,
@@ -14,6 +15,7 @@ export default function DisplayEchoes({
 }) {
   const [sort, setSort] = useState("recent");
   const [showLikedEchoes, setShowLikedEchoes] = useState(false);
+  const { user } = useUserContext();
 
   if (showLikedEchoes) {
     echoes = echoes.filter((echo) =>
@@ -53,12 +55,14 @@ export default function DisplayEchoes({
           <option value="popular">Populaires</option>
           <option value="unpopular">Moins populaires</option>
         </select>
-        <button
-          onClick={() => setShowLikedEchoes(!showLikedEchoes)}
-          className={styles.showLikedButton}
-        >
-          {showLikedEchoes ? "❤️" : "🖤"}
-        </button>
+        {user! ? (
+          <button
+            onClick={() => setShowLikedEchoes(!showLikedEchoes)}
+            className={styles.showLikedButton}
+          >
+            {showLikedEchoes ? "❤️" : "🖤"}
+          </button>
+        ) : null}
       </div>
       <div className={styles.echoesContainer}>
         {echoes.length === 0 ? (
