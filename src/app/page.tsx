@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 
 import styles from "./page.module.css";
 import { getEchoes } from "@/lib/card/getCards";
-import { getEchoesILike } from "@/lib/card/getCardsILike";
 import DisplayEchoes from "@/ui/mainPage/DisplayEchoes";
 import { EchoModel } from "@/model/EchoModel";
 import { getServerSession } from "next-auth";
@@ -12,7 +11,7 @@ import { getOne } from "@/lib/user/getUser";
 export default async function Home() {
   const session = await getServerSession(authOptions);
   let echoes: EchoModel[] = [];
-  let likedEchoes: EchoModel[] = [];
+  let userId: number | null = null;
 
   let fetchError = "";
   try {
@@ -20,12 +19,10 @@ export default async function Home() {
     if (session?.user?.email) {
       try {
         const user = await getOne(session.user.email);
-        likedEchoes = await getEchoesILike(user.id);
+        userId = user.id;
       } catch {
-        likedEchoes = [];
+        userId = null;
       }
-    } else {
-      likedEchoes = [];
     }
   } catch {
     fetchError = "Erreur lors du chargement des échos.";
@@ -43,7 +40,7 @@ export default async function Home() {
   return (
     <div className={styles.page}>
       <h1>EXPLORER</h1>
-      <DisplayEchoes echoes={echoes} likedEchoes={likedEchoes} />
+      <DisplayEchoes echoes={echoes} userId={userId} />
     </div>
   );
 }

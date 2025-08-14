@@ -3,22 +3,43 @@
 import styles from "./DisplayEchoes.module.css";
 import { EchoModel } from "@/model/EchoModel";
 import EchoItem from "./EchoItem";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useUserContext } from "@/context/UserContext";
+import { getEchoesILike } from "@/lib/card/getCardsILike";
+import Loader from "@/ui/Loader";
 
 export default function DisplayEchoes({
-  echoes,
-  likedEchoes,
+  echoes: initialEchoes,
+  userId,
 }: {
   echoes: EchoModel[];
-  likedEchoes: EchoModel[];
+  userId: number | null;
 }) {
   const [sort, setSort] = useState("recent");
   const [showLikedEchoes, setShowLikedEchoes] = useState(false);
+  const [likedEchoes, setLikedEchoes] = useState<EchoModel[]>([]);
+  const [isPending, startTransition] = useTransition();
   const { user } = useUserContext();
 
+  const handleToggleLikedEchoes = () => {
+    if (!showLikedEchoes && likedEchoes.length === 0 && userId) {
+      startTransition(async () => {
+        try {
+          const fetchedLikedEchoes = await getEchoesILike(userId);
+          setLikedEchoes(fetchedLikedEchoes);
+          setShowLikedEchoes(true);
+        } catch (error) {
+          console.error("Erreur lors du chargement des echoes likés:", error);
+        }
+      });
+    } else {
+      setShowLikedEchoes(!showLikedEchoes);
+    }
+  };
+
+  let echoes = initialEchoes;
   if (showLikedEchoes) {
-    echoes = echoes.filter((echo) =>
+    echoes = initialEchoes.filter((echo) =>
       likedEchoes.some((liked) => liked.id === echo.id)
     );
   }
@@ -57,10 +78,11 @@ export default function DisplayEchoes({
         </select>
         {user! ? (
           <button
-            onClick={() => setShowLikedEchoes(!showLikedEchoes)}
+            onClick={handleToggleLikedEchoes}
             className={styles.showLikedButton}
+            disabled={isPending}
           >
-            {showLikedEchoes ? "❤️" : "🖤"}
+            {isPending ? <Loader /> : showLikedEchoes ? "❤️" : "🖤"}
           </button>
         ) : null}
       </div>
