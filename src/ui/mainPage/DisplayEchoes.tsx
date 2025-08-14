@@ -5,8 +5,22 @@ import { EchoModel } from "@/model/EchoModel";
 import EchoItem from "./EchoItem";
 import { useState } from "react";
 
-export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
+export default function DisplayEchoes({
+  echoes,
+  likedEchoes,
+}: {
+  echoes: EchoModel[];
+  likedEchoes: EchoModel[];
+}) {
   const [sort, setSort] = useState("recent");
+  const [showLikedEchoes, setShowLikedEchoes] = useState(false);
+
+  if (showLikedEchoes) {
+    echoes = echoes.filter((echo) =>
+      likedEchoes.some((liked) => liked.id === echo.id)
+    );
+  }
+
   const sortedEchoes = [...echoes].sort((a, b) => {
     switch (sort) {
       case "recents":
@@ -39,6 +53,12 @@ export default function DisplayEchoes({ echoes }: { echoes: EchoModel[] }) {
           <option value="popular">Populaires</option>
           <option value="unpopular">Moins populaires</option>
         </select>
+        <button
+          onClick={() => setShowLikedEchoes(!showLikedEchoes)}
+          className={styles.showLikedButton}
+        >
+          {showLikedEchoes ? "❤️" : "🖤"}
+        </button>
       </div>
       <div className={styles.echoesContainer}>
         {echoes.length === 0 ? (

@@ -110,6 +110,13 @@
   margin-bottom: 3px;
 }
 
+.sortContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: first baseline;
+}
+
 .sortSelect {
   margin-bottom: 20px;
   padding: 5px;
