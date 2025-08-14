@@ -87,6 +87,7 @@
   border: solid 1px rgb(49, 49, 49);
   border-top: none;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  cursor: default;
 }
 
 .itemFooter p {
@@ -137,5 +138,17 @@
     width: 150px;
     min-width: 0;
     max-width: 150px;
+  }
+
+  @media (max-width: 385px) {
+    .echoImage {
+      width: 130px;
+      height: 130px;
+    }
+    .itemFooter {
+      width: 130px;
+      min-width: 0;
+      max-width: 130px;
+    }
   }
 }

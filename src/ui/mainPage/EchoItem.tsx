@@ -80,12 +80,7 @@ export default function EchoItem({ echo }: { echo: EchoModel }) {
   };
 
   return (
-    <li
-      className={styles.echoItem}
-      key={echo.id}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <li className={styles.echoItem} key={echo.id}>
       <LINK href={`/echoes/${echo.id}`}>
         <div className={styles.echoImageWrapper}>
           <img
@@ -94,6 +89,8 @@ export default function EchoItem({ echo }: { echo: EchoModel }) {
             }`}
             alt={echo.text_content ?? ""}
             className={styles.echoImage}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           />
           {echo.music_path && (
             <audio

@@ -87,12 +87,7 @@ export default function EchoItem({
   };
 
   return (
-    <li
-      className={styles.echoItem}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      key={echo.id}
-    >
+    <li className={styles.echoItem} key={echo.id}>
       <div className={styles.itemHeader}>
         <div className={styles.itemHeaderLeft}>
           <img src="/coeur.png" alt="Cœur" className={styles.heartIcon} />
@@ -121,6 +116,8 @@ export default function EchoItem({
               isHovered ? echo.picture_image_path : echo.picture_miniature_path
             }`}
             alt={echo.text_content ?? ""}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className={styles.echoImage}
           />
           {echo.music_path && (
