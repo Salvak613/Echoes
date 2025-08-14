@@ -29,8 +29,8 @@ export async function GET(req: Request) {
     LEFT JOIN text ON card.text_id = text.id
     LEFT JOIN user ON card.user_id = user.id`;
 
-    let whereConditions = ["card.is_private = 0"];
-    let queryParams: (string | number)[] = [];
+    const whereConditions = ["card.is_private = 0"];
+    const queryParams: (string | number)[] = [];
 
     if (liked === "true" && userId) {
       const userIdNum = parseInt(userId, 10);
